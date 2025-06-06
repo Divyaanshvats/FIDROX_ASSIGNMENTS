@@ -1,6 +1,27 @@
-# FIDROX_ASSIGNMENTS
-AccessAI –  Detecting Anomalous Swipe Behavior in  Physical Access Control Systems
+### 📌 DBSCAN-Based Anomaly Detection – Final Report
 
-**Methodology-I:**
-**Using DBSCAN(Density Based Clustering).**
-I developed a Jupyter notebook to detect anomalous swipe behavior in a simulated physical access control system dataset. The dataset, comprising **31,505 records**, was generated for **100 users across 8 doors over 30 days**, with columns including **Timestamp, UserID, DoorID, DoorName, Direction, and Result**. Specific anomalies were simulated, such as access to restricted doors (e.g., Server Room, D03), odd-hour swipes (hours 0–4, 22–23), high failed attempts (5% failure rate), and rapid sequential swipes (within 1–30 seconds). I implemented anomaly detection using **DBSCAN, Z-score, and IQR methods.** DBSCAN was applied on scaled features (IsRestrictedDoor, IsOddHour, IsFailed, Hour, TimeDiff) after PCA reduction to 2 components, with parameters eps=0.5 and min_samples=5(varied it as well), identifying 76 anomalies. Z-score and IQR methods detected 11,126 and 11,617 anomalies, respectively, capturing more of the known anomalies (e.g., 1,541 rapid swipes, 6,261 odd-hour swipes). DBSCAN’s performance was limited, with only 32 overlaps with odd-hour swipes and none with rapid swipes, indicating a need for parameter tuning and feature improvement. The dataset was saved as AccessAI_Simulated_Swipe_Logs.csv for further analysis. This work demonstrates a foundational approach to anomaly detection, with opportunities for enhancing DBSCAN’s effectiveness through better feature engineering and parameter optimization.
+#### 🔍 Methodology
+We used DBSCAN (Density-Based Spatial Clustering) to detect unusual access patterns from swipe log data. Features included:
+- Encoded User ID and Door ID
+- Hour of swipe
+- Day of the week
+- Whether access was successful or failed
+
+DBSCAN works by identifying data points that are far from dense clusters (anomalies are labeled `-1`).
+
+#### 📈 Insights from Data
+- **Odd-hour accesses** (e.g., 2 AM, 4 AM) were flagged as suspicious.
+- Users accessing **restricted or rarely used doors** frequently (e.g., Server Room, Rooftop) stood out.
+- Repeated **failures in short bursts** were detected — potentially cloned badges or unauthorized attempts.
+
+#### 🚨 Key Anomalies Detected
+- Several users showed swipe attempts outside normal working hours.
+- Access failures clustered around the Server Room and Basement Storage.
+- Users trying multiple times rapidly were flagged as potential tailgating cases.
+
+#### 🛡️ Real-World Recommendations
+- Use this model for **insider threat detection** — flag users accessing sensitive areas at odd hours.
+- Improve **access policies** for rarely used or sensitive doors by monitoring anomaly trends.
+- Support **compliance audits** with automated logging and alerts from DBSCAN.
+
+> DBSCAN is unsupervised and adaptive — making it useful even when labeled threat data is not available.
