@@ -65,6 +65,13 @@ A score near **1.0** implies well-defined clusters.
 
 ---
 
+**🔍 DBSCAN Anomaly Detection Summary**
+
+
+The DBSCAN algorithm successfully identified clusters of normal swipe patterns and flagged 37 events as outliers. These anomalies aligned well with swipe attempts occurring during off-hours (e.g., midnight to 5 AM), repeated access failures (such as 3+ consecutive failures), and access to restricted zones like the Server Room or Basement Storage. This correlation suggests that DBSCAN effectively detected behavioral irregularities consistent with potential security breaches or misuse.
+
+---
+
 ## 🚨 Real-World Applications
 
 - 🕵️‍♀️ **Insider Threat Detection**  
