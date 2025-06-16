@@ -65,9 +65,24 @@ A score near **1.0** implies well-defined clusters.
 
 ---
 
-##🔍 DBSCAN Anomaly Detection Summary
+### 🔍 DBSCAN Anomaly Detection Summary
 
 The DBSCAN algorithm successfully identified clusters of normal swipe patterns and flagged 37 events as outliers. These anomalies aligned well with swipe attempts occurring during off-hours (e.g., midnight to 5 AM), repeated access failures (such as 3+ consecutive failures), and access to restricted zones like the Server Room or Basement Storage. This correlation suggests that DBSCAN effectively detected behavioral irregularities consistent with potential security breaches or misuse.
+
+---
+
+### 🚨 Real-Time Monitoring Potential
+
+In a real-time deployment setting, anomaly detection can be enhanced using:
+
+* Rule-based alerts (e.g., 3 failed swipes in 2 minutes → trigger alarm)
+* Time-of-day based heuristics (e.g., access to finance room after 10 PM)
+* Anomaly scoring with DBSCAN or streaming algorithms
+* Dashboards with live anomaly plots using tools like Grafana, Streamlit, or Power BI
+* Slack/email/notification integrations for immediate response
+
+These enhancements can transform the current pipeline from offline analysis into a proactive security system that detects and escalates suspicious behavior in real time.
+
 
 ---
 
