@@ -146,12 +146,4 @@ Thus, K-Means is highly useful for **behavioral access analytics**, **internal t
 
 ---
 
-## 📁 File Summary
 
-- `FIDROX_DBSCAN.ipynb`: Includes DBSCAN and K-Means clustering logic.
-- `Assignment.pdf`: Project documentation and objective.
-- `README.md`: This file, summarizing your entire K-Means pipeline.
-
----
-
-> Created as part of the **AccessAI Project: Detecting Anomalous Swipe Behavior in Physical Access Control Systems**
